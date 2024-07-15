@@ -5,8 +5,8 @@ import BottomNavigation from '@/components/BottomNavigation';
 const ScanChipPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#1c1c1c]">
-      <div className="p-4">
-        <h1 className="text-xl font-bold mt-4 text-white">Sphera Vault</h1>
+     <div className="p-4 overflow-y-scroll h-[calc(100vh-100px)]">
+        <h1 className="text-xl font-bold mt-1 text-white">Sphera Vault</h1>
         <div className="flex justify-center my-4">
           <img src="/images/scaner.png" alt="Sphera Vault" className="rounded-lg" />
         </div>
