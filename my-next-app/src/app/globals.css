@@ -1,0 +1,18 @@
+/* In styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  background-color: #333333;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: #000;
+}
+
+/* In styles/globals.css */
+.list-disc-orange > li::marker {
+  color: #FF7F2A; /* Your orange color */
+}

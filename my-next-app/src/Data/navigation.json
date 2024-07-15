@@ -1,0 +1,22 @@
+[
+    {
+        "name": "HOME",
+        "icon": "home_icon"
+    },
+    {
+        "name": "MARKETPLACE",
+        "icon": "marketplace_icon"
+    },
+    {
+        "name": "FANS ZONE",
+        "icon": "fans_zone_icon"
+    },
+    {
+        "name": "$SPHERA",
+        "icon": "sphera_icon"
+    },
+    {
+        "name": "VAULT",
+        "icon": "vault_icon"
+    }
+]
