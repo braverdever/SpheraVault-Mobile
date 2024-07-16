@@ -3,7 +3,7 @@ import ScanChipPage from "@/pages/ScanChip/ScanChipPage"
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-[#1c1c1c]">
       <ScanChipPage />
     </main>
   );
