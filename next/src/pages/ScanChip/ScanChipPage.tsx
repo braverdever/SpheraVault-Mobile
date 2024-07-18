@@ -8,13 +8,13 @@ import { getInfoToSign } from "../../utils/pbt.mjs";
 const ScanChipPage: React.FC = () => {
   const scanChip = async () => {
     // In production
-    // const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
 
-    // const addr = params.get("address");
-    // const recentBlockHash = params.get("blockhash");
+    const addr = params.get("address");
+    const recentBlockHash = params.get("blockhash");
 
     //For test
-    const { addr, recentBlockHash } = await getInfoToSign();
+    // const { addr, recentBlockHash } = await getInfoToSign();
 
     if (addr == undefined || recentBlockHash == undefined) {
       alert("Incorrect address or block hash!");
