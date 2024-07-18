@@ -4,7 +4,6 @@ import Link from "next/link";
 import BottomNavigation from "@/components/BottomNavigation";
 import { generateSignature } from "../../utils/pbt.mjs";
 import { getInfoToSign } from "../../utils/pbt.mjs";
-
 const ScanChipPage: React.FC = () => {
   const scanChip = async () => {
     // In production
