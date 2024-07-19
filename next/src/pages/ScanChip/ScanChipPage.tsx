@@ -10,19 +10,15 @@ const ScanChipPage: React.FC = () => {
     // In production
     const params = new URLSearchParams(window.location.search);
 
-    const addr = params.get("address");
-    const recentBlockHash = params.get("blockhash");
+    const messageHash = params.get("message");
 
-    //For test
-    // const { addr, recentBlockHash } = await getInfoToSign();
-
-    if (addr == undefined || recentBlockHash == undefined) {
-      alert("Incorrect address or block hash!");
+    if (messageHash == undefined) {
+      alert("Incorrect Message!");
       return;
     }
 
     try {
-      const signature = await generateSignature(addr, recentBlockHash);
+      const signature = await generateSignature(messageHash);
       alert(signature);
       console.log(signature);
     } catch {

@@ -19,18 +19,7 @@ const getInfoToSign = async () => {
   };
 };
 
-const generateSignature = async (addr, blockHash) => {
-  var web3Provider = new Web3.providers.HttpProvider(
-    "https://testnet.hashio.io/api"
-    // process.env.RPC_URL
-  );
-  const web3Instance = new Web3(web3Provider);
-  const messageHash = web3Instance.utils.keccak256(
-    web3Instance.utils.encodePacked(
-      { value: addr, type: "address" },
-      { value: blockHash, type: "bytes" }
-    )
-  );
+const generateSignature = async (messageHash) => {
   const signature = (
     await execHaloCmdWeb({
       name: "sign",
