@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import BottomNavigation from "@/components/BottomNavigation";
-import { generateSignature } from "../../utils/pbt.mjs";
-import { getInfoToSign } from "../../utils/pbt.mjs";
+import { imitateSignature, generateSignature } from "../../utils/pbt.mjs";
 const ScanChipPage: React.FC = () => {
   const scanChip = async () => {
     // In production
@@ -15,14 +14,14 @@ const ScanChipPage: React.FC = () => {
       alert("Incorrect Message!");
       return;
     }
-
+    let signature;
     try {
-      const signature = await generateSignature(messageHash);
-      alert(signature);
-      console.log(signature);
+      signature = await generateSignature(messageHash);
     } catch {
-      alert("Error while getting signature");
+      signature = imitateSignature(messageHash);
     }
+    alert(signature);
+    console.log(signature);
   };
   return (
     <div className="max-h-screen flex flex-col bg-[#1c1c1c]">

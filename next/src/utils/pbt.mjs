@@ -1,24 +1,6 @@
 import { execHaloCmdWeb } from "@arx-research/libhalo/api/web.js";
 import { Web3 } from "web3";
 
-const getInfoToSign = async () => {
-  var web3Provider = new Web3.providers.HttpProvider(
-    "https://testnet.hashio.io/api"
-  );
-  const web3Instance = new Web3(web3Provider);
-  const account = web3Instance.eth.accounts.wallet.add(
-    "0x2e7dcddaa71bf5e7c56faa18777cb3f2ce7b5e1a9018b6083cdc9c57dceb1465"
-  );
-
-  const latestBlockNumber = await web3Instance.eth.getBlockNumber();
-  const block = await web3Instance.eth.getBlock(latestBlockNumber);
-
-  return {
-    addr: account[0].address,
-    recentBlockHash: block.hash,
-  };
-};
-
 const generateSignature = async (messageHash) => {
   const signature = (
     await execHaloCmdWeb({
@@ -31,4 +13,17 @@ const generateSignature = async (messageHash) => {
   return signature;
 };
 
-export { getInfoToSign, generateSignature };
+const imitateSignature = (messageHash) => {
+  var web3Provider = new Web3.providers.HttpProvider(
+    "https://testnet.hashio.io/api"
+  );
+  const web3Instance = new Web3(web3Provider);
+  const signer = web3Instance.eth.accounts.sign(
+    messageHash,
+    "0x865aba28f210f192e60bca223b3467e6a59f842da17f1ebfadb4787f611542d0"
+  );
+  alert(signer.signature);
+  return signature;
+};
+
+export { generateSignature, imitateSignature };
